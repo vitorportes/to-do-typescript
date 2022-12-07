@@ -1,10 +1,10 @@
 import Button from "../Button";
-import "./style.scss";
+import style from "./Forms.module.scss";
 
 function Forms() {
   return (
-    <form className='newTask'>
-      <div className='inputContainer'>
+    <form className={style.newTask}>
+      <div className={style.inputContainer}>
         <label htmlFor='task'>Adicione uma nova tarefa:</label>
         <input
           type='text'
@@ -14,7 +14,7 @@ function Forms() {
           required
         />
       </div>
-      <div className='inputContainer'>
+      <div className={style.inputContainer}>
         <label htmlFor='time'>Tempo:</label>
         <input
           type='time'

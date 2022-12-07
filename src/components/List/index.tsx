@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./style.scss";
+import style from "./List.module.scss";
 
 function List() {
   const [tasks, setTasks] = useState([]);
@@ -15,12 +15,12 @@ function List() {
   ];
 
   return (
-    <aside className='listaTarefas'>
+    <aside className={style.listaTarefas}>
       <h2>Tarefas do dia</h2>
       <ul>
         {lista.map((task, index) => {
           return (
-            <div className='item' key={index}>
+            <div className={style.item} key={index}>
               <h3>{task.title}</h3>
               <span>{task.time}</span>
             </div>
