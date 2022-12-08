@@ -1,5 +1,6 @@
 import { useState } from "react";
 import style from "./List.module.scss";
+import Task from "./Task";
 
 function List() {
   const [tasks, setTasks] = useState([]);
@@ -19,12 +20,7 @@ function List() {
       <h2>Tarefas do dia</h2>
       <ul>
         {lista.map((task, index) => {
-          return (
-            <div className={style.item} key={index}>
-              <h3>{task.title}</h3>
-              <span>{task.time}</span>
-            </div>
-          );
+          return <Task {...task} key={index} />;
         })}
       </ul>
     </aside>

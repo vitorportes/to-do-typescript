@@ -26,7 +26,7 @@ function Forms() {
           required
         />
       </div>
-      <Button />
+      <Button text='Adicionar' />
     </form>
   );
 }
