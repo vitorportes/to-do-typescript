@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { task } from "../../types/task";
 import Button from "../Button";
 import style from "./Forms.module.scss";
+import { v4 } from "uuid";
 
 function Forms({
   setTasks,
@@ -15,8 +16,19 @@ function Forms({
 
   function addTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setTasks((oldTasks) => [...oldTasks, tarefa]);
-    console.log(tarefa);
+    setTasks((oldTasks) => [
+      ...oldTasks,
+      {
+        ...tarefa,
+        selected: false,
+        completed: false,
+        id: v4(),
+      },
+    ]);
+    setTarefa({
+      title: "",
+      time: "00:00:00",
+    });
   }
 
   return (
@@ -29,6 +41,7 @@ function Forms({
           id='task'
           placeholder='O que você quer fazer?'
           required
+          value={tarefa.title}
           onChange={(e) => {
             setTarefa({ ...tarefa, title: e.target.value });
           }}
