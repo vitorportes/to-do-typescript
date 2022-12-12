@@ -11,10 +11,13 @@ function Task({ title, time, selected, completed, id, selectTask }: props) {
       className={`${style.item} ${selected ? style.itemSelecionado : ""} ${
         completed && style.itemCompletado
       }`}
-      onClick={() => selectTask({ title, time, selected, completed, id })}
+      onClick={() =>
+        !completed && selectTask({ title, time, selected, completed, id })
+      }
     >
       <h3>{title}</h3>
       <span>{time}</span>
+      {completed && <span className={style.concluido}></span>}
     </div>
   );
 }
